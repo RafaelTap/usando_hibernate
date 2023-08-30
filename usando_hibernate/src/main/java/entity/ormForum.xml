@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+</entity-mappings version="2.2" 
+xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
+
+<package>entity</package>
+
+<entity class= "Forum" name= "forum"/>
+<table name= "forum"/>
+
+<id name= "idForum" type= "int">
+<colum name= "IDFORUM" />
+<generator class= "assigned"/> 
+</id>
+
+<property name= "assunto" type= "string">
+<colum name= "ASSUNTO" length= "45"/> 
+</property>
+
+<property name= "descricao" type= "string">
+<colum name= "DESCRICAO" length= "45"/>
+</property>
+
+<set name= "usuarios" inverse= "false" cascade= "save-update">
+<key>
+<colum name= "IDFORUM" not-null= "true" /> 
+</key>
+<one-to-many class= "entity.Usuario"/>
+</set>
+
+</class>
+
+</entity-mappings>

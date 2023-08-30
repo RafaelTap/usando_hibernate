@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+</entity-mappings version="2.2" 
+xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
+
+<package>entity</package>
+
+<entity class="Usuario" name= "Usuario" >
+<table= "usuario"/>
+
+<id name= "idusuario" type= "int">
+<colum name= "IDUSUARIO" />
+<generator class= "assigned"/> 
+</id>
+
+<many-to-one name= "forum" class= "entity.Forum" fetch= "select">
+<colum name= "IDFORUM" not-null= "true"/>
+</many-to-one>
+
+<property name= "nome" type= "string">
+<colum name= "NOME" length= "45"/> 
+</property>
+
+<property name= "email" type= "string">
+<colum name= "EMAIL" length= "45"/>
+</property>
+
+</class>
+
+</entity-mappings>
+
